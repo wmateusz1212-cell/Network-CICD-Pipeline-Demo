@@ -110,13 +110,9 @@ Plaintext
 🚀 How to Run
 Clone the repository:
 
-Bash
-
 git clone [https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git](https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git)
 cd Network-CICD-Pipeline-Demo
 Install dependencies:
-
-Bash
 
 pip3 install -r requirements.txt
 ansible-galaxy collection install cisco.ios
