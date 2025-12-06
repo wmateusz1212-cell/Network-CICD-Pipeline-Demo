@@ -1,12 +1,3 @@
-Jasna sprawa\! Zrobiłem to tak, aby README automatycznie zaciągało zdjęcia z Twojego folderu `images`.
-
-**Ważne:** Aby to zadziałało idealnie, musisz zmienić nazwy swoich plików ze screenshotami w folderze `images` na:
-
-1.  `topology.png` – (Twój schemat sieci)
-2.  `pipeline_success.png` – (Screenshot z zielonym wynikiem "Passed")
-3.  `pipeline_fail.png` – (Screenshot z czerwonym błędem Ansible/PyATS)
-
-Oto gotowy kod. Skopiuj i wklej do `README.md`:
 
 ````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
