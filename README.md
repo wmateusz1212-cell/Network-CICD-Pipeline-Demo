@@ -138,7 +138,7 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 
 -----
 
-*Created by [Twoje Imię]*
+*Created by Mateusz W*
 
 ```
 ```
