@@ -1,8 +1,12 @@
-Oto **kompletny, idealnie sformatowany plik `README.md`**.
+Jasna sprawa\! Zrobiłem to tak, aby README automatycznie zaciągało zdjęcia z Twojego folderu `images`.
 
-Zastosowałem tu formatowanie, które sprawia, że sekcje analizy (Analysis) są wizualnie "przyklejone" do wyników z konsoli za pomocą cytowania (`>`), co pozwala zachować pogrubienia i listy, a jednocześnie wygląda spójnie.
+**Ważne:** Aby to zadziałało idealnie, musisz zmienić nazwy swoich plików ze screenshotami w folderze `images` na:
 
-Skopiuj całość i wklej do pliku.
+1.  `topology.png` – (Twój schemat sieci)
+2.  `pipeline_success.png` – (Screenshot z zielonym wynikiem "Passed")
+3.  `pipeline_fail.png` – (Screenshot z czerwonym błędem Ansible/PyATS)
+
+Oto gotowy kod. Skopiuj i wklej do `README.md`:
 
 ````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
@@ -66,6 +70,8 @@ changed: [R2-Edge]
 >   * **Verification:** PyATS parsed the routing table and confirmed that OSPF neighbors are established.
 >   * **Result:** The pipeline exits with **Code 0**, signaling a successful deployment.
 
+**Screenshot:**
+
 -----
 
 ### Scenario 2: Failure Detection (Quality Gate) ❌
@@ -93,6 +99,8 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 >   * **The Catch:** The PyATS script detected the missing neighbor relationship.
 >   * **Result:** The pipeline failed with **Exit Code 1**, preventing the bad configuration from being marked as "Success".
 
+**Screenshot:**
+
 ## 📂 Repository Structure
 
 ```text
@@ -103,6 +111,10 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 ├── playbooks/              # Ansible Playbooks
 │   ├── deploy_ospf.yml     # Main configuration logic
 │   └── check_ospf.yml      # Ad-hoc verification
+├── images/                 # Evidence & Diagrams
+│   ├── topology.png
+│   ├── pipeline_success.png
+│   └── pipeline_fail.png
 ├── inventory               # Inventory file (IPs and credentials)
 ├── ansible.cfg             # Ansible configuration
 ├── testbed.yml             # PyATS network definition
@@ -135,7 +147,7 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 
 -----
 
-*Created by Mateusz W*
+*Created by [Twoje Imię]*
 
 ```
 ```
