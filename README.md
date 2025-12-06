@@ -89,21 +89,21 @@ Result: The pipeline failed with Exit Code 1, preventing the bad configuration f
 
 📂 Repository Structure
 .
-├── host_vars/              # Device-specific variables (Source of Truth)
-│   ├── R1-Core.yml
-│   └── R2-Edge.yml
-├── playbooks/              # Ansible Playbooks
-│   ├── deploy_ospf.yml     # Main configuration logic
-│   └── check_ospf.yml      # Ad-hoc verification
-├── images/                 # Evidence & Diagrams
-│   ├── topology.png
-│   ├── pipeline_success.png
-│   └── pipeline_fail.png
-├── inventory               # Inventory file (IPs and credentials)
-├── ansible.cfg             # Ansible configuration
-├── testbed.yml             # PyATS network definition
-├── verify_ospf.py          # Python testing script (The Logic)
-└── run_pipeline.sh         # Master CI/CD Orchestrator
+├── host_vars/              # Device-specific variables (Source of Truth)  
+│   ├── R1-Core.yml  
+│   └── R2-Edge.yml  
+├── playbooks/              # Ansible Playbooks  
+│   ├── deploy_ospf.yml     # Main configuration logic  
+│   └── check_ospf.yml      # Ad-hoc verification  
+├── images/                 # Evidence & Diagrams  
+│   ├── topology.png  
+│   ├── pipeline_success.png  
+│   └── pipeline_fail.png  
+├── inventory               # Inventory file (IPs and credentials)  
+├── ansible.cfg             # Ansible configuration  
+├── testbed.yml             # PyATS network definition  
+├── verify_ospf.py          # Python testing script (The Logic)  
+└── run_pipeline.sh         # Master CI/CD Orchestrator  
 🚀 How to Run
 Clone the repository:
 
