@@ -1,15 +1,15 @@
-
 ````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
 
-![Ansible]![Red Pipeline](images/pipeline_fail.png) ![Cisco PyATS](https://img.shields.io/badge/Test-Cisco_PyATS-blue) ![Status]![Green Pipeline][(images/pipeline_success.png)]
+![Ansible](https://img.shields.io/badge/Ansible-Network_Automation-red) ![Cisco PyATS](https://img.shields.io/badge/Test-Cisco_PyATS-blue) ![Status](https://img.shields.io/badge/Pipeline-Passing-success)
 
 ## 📌 Executive Summary
 This project demonstrates a fully automated **Continuous Integration / Continuous Deployment (CI/CD)** pipeline for Network Infrastructure.
 
 Instead of manual CLI configurations, the network state is defined as code (**IaC**) using YAML variables. The pipeline ensures that any configuration change is automatically deployed and, crucially, **verified against business logic** before being accepted.
 
-![Network Topology](images/topology.png)
+### Network Topology
+![Network Topology](images/topology_diagram.png.png)
 
 ## ⚙️ Architecture & Workflow
 
@@ -103,9 +103,9 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 │   ├── deploy_ospf.yml     # Main configuration logic
 │   └── check_ospf.yml      # Ad-hoc verification
 ├── images/                 # Evidence & Diagrams
-│   ├── topology.png
-│   ├── pipeline_success.png
-│   └── pipeline_fail.png
+│   ├── topology_diagram.png.png
+│   ├── image_a4d67a.png
+│   └── image_1ab12d.png
 ├── inventory               # Inventory file (IPs and credentials)
 ├── ansible.cfg             # Ansible configuration
 ├── testbed.yml             # PyATS network definition
