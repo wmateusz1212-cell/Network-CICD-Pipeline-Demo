@@ -2,14 +2,14 @@
 ````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
 
-![Ansible](images/pipeline_fail.png) ![Cisco PyATS](https://img.shields.io/badge/Test-Cisco_PyATS-blue) ![Status](images/pipeline_success.png)
+![Ansible](Network-CICD-Portfolio/images/pipeline_fail.png) ![Cisco PyATS](https://img.shields.io/badge/Test-Cisco_PyATS-blue) ![Status](Network-CICD-Portfolio/images/pipeline_success.png)
 
 ## 📌 Executive Summary
 This project demonstrates a fully automated **Continuous Integration / Continuous Deployment (CI/CD)** pipeline for Network Infrastructure.
 
 Instead of manual CLI configurations, the network state is defined as code (**IaC**) using YAML variables. The pipeline ensures that any configuration change is automatically deployed and, crucially, **verified against business logic** before being accepted.
 
-![Network Topology](images/topology.png)
+![Network Topology](Network-CICD-Portfolio/images/topology.png)
 
 ## ⚙️ Architecture & Workflow
 
