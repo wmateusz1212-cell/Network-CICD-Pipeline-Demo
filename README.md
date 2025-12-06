@@ -126,4 +126,4 @@ Bash
 
 chmod +x run_pipeline.sh
 ./run_pipeline.sh
-Created by [Twoje Imię]
+Created by Mateusz W
