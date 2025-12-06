@@ -1,15 +1,13 @@
-````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
 
-![Ansible][<img width="1897" height="973" alt="Image" src="https://github.com/user-attachments/assets/3d1fb89b-77e6-40df-9bda-5373ea552a51" />](https://private-user-images.githubusercontent.com/247868388/523390111-3d1fb89b-77e6-40df-9bda-5373ea552a51.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjUwNjQ1NjUsIm5iZiI6MTc2NTA2NDI2NSwicGF0aCI6Ii8yNDc4NjgzODgvNTIzMzkwMTExLTNkMWZiODliLTc3ZTYtNDBkZi05YmRhLTUzNzNlYTU1MmE1MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwNlQyMzM3NDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03OTEwZmJmYzM5MDhmNDljOGIyMGRmZDIxNjg1MTRlM2I2NDllMjRiZDBjMjQyNjFhNzZlMzYzNmUxMjE3MDNhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Dx5-uPoVMKaYdDaptIzfIlx_m-BsdTXO7_tjg2Jf-h4) ![Cisco PyATS]<img width="1887" height="942" alt="Image" src="https://github.com/user-attachments/assets/b7baf46e-99f0-4ccf-bfbc-a44e61480649" />
+![Ansible](https://img.shields.io/badge/Ansible-Network_Automation-red) ![Cisco PyATS](https://img.shields.io/badge/Test-Cisco_PyATS-blue) ![Status](https://img.shields.io/badge/Pipeline-Passing-success)
 
 ## 📌 Executive Summary
 This project demonstrates a fully automated **Continuous Integration / Continuous Deployment (CI/CD)** pipeline for Network Infrastructure.
 
 Instead of manual CLI configurations, the network state is defined as code (**IaC**) using YAML variables. The pipeline ensures that any configuration change is automatically deployed and, crucially, **verified against business logic** before being accepted.
 
-### Network Topology
-![Network Topology]<img width="662" height="357" alt="Image" src="https://github.com/user-attachments/assets/2ebe59b1-5fa6-4cef-bbce-92564d21d01b" />
+![Network Topology](images/topology.png)
 
 ## ⚙️ Architecture & Workflow
 
@@ -53,25 +51,23 @@ changed: [R2-Edge]
 [+] PASS: OSPF Adjacency is healthy.
 
 ✅ CI/CD PIPELINE FINISHED SUCCESSFULLY! The network is healthy.
-````
+Analysis:
 
-> **Analysis:**
->
->   * **Deployment:** Ansible successfully pushed the configuration without errors.
->   * **Verification:** PyATS parsed the routing table and confirmed that OSPF neighbors are established.
->   * **Result:** The pipeline exits with **Code 0**, signaling a successful deployment.
+Deployment: Ansible successfully pushed the configuration without errors.
 
-**Screenshot:**
+Verification: PyATS parsed the routing table and confirmed that OSPF neighbors are established.
 
------
+Result: The pipeline exits with Code 0, signaling a successful deployment.
 
-### Scenario 2: Failure Detection (Quality Gate) ❌
+Screenshot:
 
-Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-Core.yml`). Ansible deployed the configuration successfully (as it was syntactically correct), but **PyATS detected the logical error**.
+Scenario 2: Failure Detection (Quality Gate) ❌
+Here, an intentional error was introduced (IP Address mismatch in host_vars/R1-Core.yml). Ansible deployed the configuration successfully (as it was syntactically correct), but PyATS detected the logical error.
 
-**Pipeline Output:**
+Pipeline Output:
 
-```text
+Plaintext
+
 === STEP 1: DEPLOY CONFIGURATION (ANSIBLE) ===
 ...
 >>> Deployment Successful! Proceeding to Testing phase...
@@ -82,19 +78,19 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 [!] FAIL: No OSPF neighbors found on R1-Core!
 
 ❌ PIPELINE FAILED! Tests did not pass. Check logs.
-```
+Analysis:
 
-> **Analysis:**
->
->   * **The Trap:** Even though Ansible finished successfully, the network was broken (OSPF down due to mismatch).
->   * **The Catch:** The PyATS script detected the missing neighbor relationship.
->   * **Result:** The pipeline failed with **Exit Code 1**, preventing the bad configuration from being marked as "Success".
+The Trap: Even though Ansible finished successfully, the network was broken (OSPF down due to mismatch).
 
-**Screenshot:**
+The Catch: The PyATS script detected the missing neighbor relationship.
 
-## 📂 Repository Structure
+Result: The pipeline failed with Exit Code 1, preventing the bad configuration from being marked as "Success".
 
-```text
+Screenshot:
+
+📂 Repository Structure
+Plaintext
+
 .
 ├── host_vars/              # Device-specific variables (Source of Truth)
 │   ├── R1-Core.yml
@@ -103,42 +99,31 @@ Here, an intentional error was introduced (IP Address mismatch in `host_vars/R1-
 │   ├── deploy_ospf.yml     # Main configuration logic
 │   └── check_ospf.yml      # Ad-hoc verification
 ├── images/                 # Evidence & Diagrams
-│   ├── topology_diagram.png.png
-│   ├── image_a4d67a.png
-│   └── image_1ab12d.png
+│   ├── topology.png
+│   ├── pipeline_success.png
+│   └── pipeline_fail.png
 ├── inventory               # Inventory file (IPs and credentials)
 ├── ansible.cfg             # Ansible configuration
 ├── testbed.yml             # PyATS network definition
 ├── verify_ospf.py          # Python testing script (The Logic)
 └── run_pipeline.sh         # Master CI/CD Orchestrator
-```
+🚀 How to Run
+Clone the repository:
 
-## 🚀 How to Run
+Bash
 
-1.  **Clone the repository:**
+git clone [https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git](https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git)
+cd Network-CICD-Pipeline-Demo
+Install dependencies:
 
-    ```bash
-    git clone [https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git](https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git)
-    cd Network-CICD-Pipeline-Demo
-    ```
+Bash
 
-2.  **Install dependencies:**
+pip3 install -r requirements.txt
+ansible-galaxy collection install cisco.ios
+Run the pipeline:
 
-    ```bash
-    pip3 install -r requirements.txt
-    ansible-galaxy collection install cisco.ios
-    ```
+Bash
 
-3.  **Run the pipeline:**
-
-    ```bash
-    chmod +x run_pipeline.sh
-    ./run_pipeline.sh
-    ```
-
------
-
-*Created by Mateusz W*
-
-```
-```
+chmod +x run_pipeline.sh
+./run_pipeline.sh
+Created by [Twoje Imię]
