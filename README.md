@@ -1,7 +1,7 @@
 ````markdown
 # 🚀 Network CI/CD Pipeline with Ansible & PyATS
 
-![Ansible]<img width="1897" height="973" alt="Image" src="https://github.com/user-attachments/assets/3d1fb89b-77e6-40df-9bda-5373ea552a51" /> ![Cisco PyATS]<img width="1887" height="942" alt="Image" src="https://github.com/user-attachments/assets/b7baf46e-99f0-4ccf-bfbc-a44e61480649" />
+![Ansible][<img width="1897" height="973" alt="Image" src="https://github.com/user-attachments/assets/3d1fb89b-77e6-40df-9bda-5373ea552a51" />](https://private-user-images.githubusercontent.com/247868388/523390111-3d1fb89b-77e6-40df-9bda-5373ea552a51.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NjUwNjQ1NjUsIm5iZiI6MTc2NTA2NDI2NSwicGF0aCI6Ii8yNDc4NjgzODgvNTIzMzkwMTExLTNkMWZiODliLTc3ZTYtNDBkZi05YmRhLTUzNzNlYTU1MmE1MS5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUxMjA2JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MTIwNlQyMzM3NDVaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT03OTEwZmJmYzM5MDhmNDljOGIyMGRmZDIxNjg1MTRlM2I2NDllMjRiZDBjMjQyNjFhNzZlMzYzNmUxMjE3MDNhJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.Dx5-uPoVMKaYdDaptIzfIlx_m-BsdTXO7_tjg2Jf-h4) ![Cisco PyATS]<img width="1887" height="942" alt="Image" src="https://github.com/user-attachments/assets/b7baf46e-99f0-4ccf-bfbc-a44e61480649" />
 
 ## 📌 Executive Summary
 This project demonstrates a fully automated **Continuous Integration / Continuous Deployment (CI/CD)** pipeline for Network Infrastructure.
