@@ -35,7 +35,7 @@ The pipeline consists of two major stages orchestrated by a Master Bash script (
 In this scenario, the configuration in `host_vars` is correct. Ansible deploys the changes, and PyATS confirms that OSPF adjacency has reached the `FULL` state.
 
 **Pipeline Output:**
-```text
+```
 === STEP 1: DEPLOY CONFIGURATION (ANSIBLE) ===
 PLAY [Configure Production Network (OSPF)] *************************************
 TASK [Configure Interfaces] ****************************************************
@@ -51,6 +51,7 @@ changed: [R2-Edge]
 [+] PASS: OSPF Adjacency is healthy.
 
 ✅ CI/CD PIPELINE FINISHED SUCCESSFULLY! The network is healthy.
+```
 Analysis:
 
 Deployment: Ansible successfully pushed the configuration without errors.
@@ -66,8 +67,7 @@ Here, an intentional error was introduced (IP Address mismatch in host_vars/R1-C
 
 Pipeline Output:
 
-Plaintext
-
+```
 === STEP 1: DEPLOY CONFIGURATION (ANSIBLE) ===
 ...
 >>> Deployment Successful! Proceeding to Testing phase...
@@ -78,6 +78,7 @@ Plaintext
 [!] FAIL: No OSPF neighbors found on R1-Core!
 
 ❌ PIPELINE FAILED! Tests did not pass. Check logs.
+```
 Analysis:
 
 The Trap: Even though Ansible finished successfully, the network was broken (OSPF down due to mismatch).
@@ -86,11 +87,7 @@ The Catch: The PyATS script detected the missing neighbor relationship.
 
 Result: The pipeline failed with Exit Code 1, preventing the bad configuration from being marked as "Success".
 
-Screenshot:
-
 📂 Repository Structure
-Plaintext
-
 .
 ├── host_vars/              # Device-specific variables (Source of Truth)
 │   ├── R1-Core.yml
@@ -110,16 +107,20 @@ Plaintext
 🚀 How to Run
 Clone the repository:
 
+```
 git clone [https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git](https://github.com/YourUsername/Network-CICD-Pipeline-Demo.git)
 cd Network-CICD-Pipeline-Demo
+```
 Install dependencies:
 
+```
 pip3 install -r requirements.txt
 ansible-galaxy collection install cisco.ios
+```
 Run the pipeline:
 
-Bash
-
+```
 chmod +x run_pipeline.sh
 ./run_pipeline.sh
+```
 Created by Mateusz W
