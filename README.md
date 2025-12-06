@@ -88,7 +88,7 @@ The Catch: The PyATS script detected the missing neighbor relationship.
 Result: The pipeline failed with Exit Code 1, preventing the bad configuration from being marked as "Success".
 
 📂 Repository Structure
-.
+.  
 ├── host_vars/              # Device-specific variables (Source of Truth)  
 │   ├── R1-Core.yml  
 │   └── R2-Edge.yml  
