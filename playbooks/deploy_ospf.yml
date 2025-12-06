@@ -1,0 +1,29 @@
+---
+- name: Configure Production Network (OSPF)
+  hosts: routers
+  gather_facts: no
+
+  tasks:
+    # 1. Konfiguracja interfejsów (IP + UP)
+    - name: Configure Interfaces
+      cisco.ios.ios_config:
+        lines:
+          - description {{ item.description }}
+          - ip address {{ item.ip_address }} {{ item.mask }}
+          - no shutdown
+        parents: interface {{ item.name }}
+      loop: "{{ interfaces }}"
+
+    # 2. Konfiguracja OSPF (Proces + Network commands)
+    - name: Configure OSPF Routing
+      cisco.ios.ios_config:
+        lines:
+          - router-id {{ ansible_host }}
+          # Ogłaszamy sieć produkcyjną 10.0.0.0/30 w Area 0
+          - network 10.0.0.0 0.0.0.3 area 0
+        parents: router ospf {{ ospf_process_id }}
+
+    # 3. Zapisanie
+    - name: Save Configuration
+      cisco.ios.ios_config:
+        save_when: modified

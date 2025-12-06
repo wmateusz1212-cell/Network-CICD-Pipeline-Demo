@@ -1,0 +1,15 @@
+[routers]
+R1-Core ansible_host=192.168.1.149
+R2-Edge ansible_host=192.168.1.115
+
+[routers:vars]
+# Definicja systemu i połączenia
+ansible_network_os=cisco.ios.ios
+ansible_connection=network_cli
+
+# Dane logowania
+ansible_user=admin
+ansible_password=cisco
+ansible_become=yes
+ansible_become_method=enable
+ansible_become_password=cisco

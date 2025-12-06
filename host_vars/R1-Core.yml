@@ -1,0 +1,7 @@
+ospf_process_id: 1
+interfaces:
+  - name: GigabitEthernet2
+    description: LINK_TO_R2
+    ip_address: 10.0.0.1
+    mask: 255.255.255.252
+    enabled: true

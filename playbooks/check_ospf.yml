@@ -1,0 +1,14 @@
+---
+- name: Verify OSPF Neighbors
+  hosts: routers
+  gather_facts: no
+  
+  tasks:
+    - name: Get OSPF Neighbors
+      cisco.ios.ios_command:
+        commands: show ip ospf neighbor
+      register: output
+
+    - name: Print Output
+      debug:
+        var: output.stdout_lines

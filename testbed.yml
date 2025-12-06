@@ -1,0 +1,27 @@
+testbed:
+  name: CML_LAB_NETWORK
+
+devices:
+  R1-Core:
+    os: iosxe
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.149  # Twój IP R1
+    credentials:
+      default:
+        username: admin
+        password: cisco
+        
+  R2-Edge:
+    os: iosxe
+    type: router
+    connections:
+      cli:
+        protocol: ssh
+        ip: 192.168.1.115  # Twój IP R2
+    credentials:
+      default:
+        username: admin
+        password: cisco
